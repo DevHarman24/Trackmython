@@ -81,8 +81,8 @@ function LinkContent() {
         return (
             <div className="text-center">
                 <div className="text-6xl mb-6">🛸</div>
-                <h1 className="text-2xl font-black uppercase tracking-tighter italic text-white mb-2">Invalid <span className="text-blue-500">Transmission</span></h1>
-                <p className="text-blue-200/40 text-[10px] font-bold uppercase tracking-widest">
+                <h1 className="text-2xl font-black uppercase tracking-tighter italic text-zinc-900 mb-2">Invalid <span className="text-indigo-600">Transmission</span></h1>
+                <p className="text-indigo-400 text-[10px] font-bold uppercase tracking-widest">
                     No handshake code detected from Discord.
                 </p>
             </div>
@@ -92,12 +92,12 @@ function LinkContent() {
     if (!user) {
         return (
             <div className="text-center">
-                <div className="w-12 h-12 rounded-xl bg-blue-600 neon-blue-glow flex items-center justify-center font-black text-xl text-black mx-auto mb-6 italic">U</div>
-                <h1 className="text-2xl font-black uppercase tracking-tighter text-white italic mb-2">Initialize <span className="text-blue-500">Link</span></h1>
-                <p className="mb-8 text-blue-200/60 text-xs font-medium">{message}</p>
+                <div className="w-12 h-12 rounded-xl bg-indigo-600 shadow-lg shadow-indigo-500/20 flex items-center justify-center font-black text-xl text-white mx-auto mb-6 italic">U</div>
+                <h1 className="text-2xl font-black uppercase tracking-tighter text-zinc-900 italic mb-2">Initialize <span className="text-indigo-600">Link</span></h1>
+                <p className="mb-8 text-indigo-500 text-xs font-medium">{message}</p>
                 <button
                     onClick={handleLogin}
-                    className="w-full px-6 py-4 bg-white text-black rounded-xl font-black uppercase tracking-widest text-xs hover:bg-blue-50 transition-all duration-200 "
+                    className="w-full px-6 py-4 bg-zinc-900 text-white rounded-xl font-black uppercase tracking-widest text-xs hover:bg-zinc-800 transition-all duration-200 "
                 >
                     Auth with Google
                 </button>
@@ -109,25 +109,25 @@ function LinkContent() {
         <div className="text-center max-w-md w-full">
             {status === 'loading' && (
                 <>
-                    <div className="h-12 w-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-6" />
-                    <h1 className="text-xl font-black uppercase tracking-tighter text-white mb-2">Synchronizing...</h1>
-                    <p className="text-blue-200/40 text-[10px] font-bold uppercase tracking-widest">{message}</p>
+                    <div className="h-12 w-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mx-auto mb-6" />
+                    <h1 className="text-xl font-black uppercase tracking-tighter text-zinc-900 mb-2">Synchronizing...</h1>
+                    <p className="text-indigo-400 text-[10px] font-bold uppercase tracking-widest">{message}</p>
                 </>
             )}
 
             {status === 'success' && (
                 <>
                     <div className="text-6xl mb-6">🛰️</div>
-                    <h1 className="text-2xl font-black uppercase tracking-tighter text-blue-400 mb-2">Link Established</h1>
-                    <p className="text-white/80 text-sm font-medium mb-2">
-                        Discord identity <span className="text-blue-400 font-black italic">@{discordUsername}</span> recognized.
+                    <h1 className="text-2xl font-black uppercase tracking-tighter text-indigo-600 mb-2">Link Established</h1>
+                    <p className="text-zinc-600 text-sm font-medium mb-2">
+                        Discord identity <span className="text-indigo-600 font-black italic">@{discordUsername}</span> recognized.
                     </p>
-                    <p className="text-blue-200/40 text-[10px] font-bold uppercase tracking-widest mb-8">
+                    <p className="text-indigo-400 text-[10px] font-bold uppercase tracking-widest mb-8">
                         The bridge is now active.
                     </p>
                     <button
                         onClick={() => router.push("/")}
-                        className="w-full bg-blue-600 hover:bg-blue-500 text-white px-6 py-4 rounded-xl font-black uppercase tracking-widest text-xs transition-all neon-blue-glow"
+                        className="w-full bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-4 rounded-xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-indigo-500/20"
                     >
                         Enter Dashboard
                     </button>
@@ -137,11 +137,11 @@ function LinkContent() {
             {status === 'error' && (
                 <>
                     <div className="text-6xl mb-6">⚠️</div>
-                    <h1 className="text-2xl font-black uppercase tracking-tighter text-red-500 mb-2">Protocol Error</h1>
-                    <p className="text-white/60 text-xs mb-8 font-medium">{message}</p>
+                    <h1 className="text-2xl font-black uppercase tracking-tighter text-red-600 mb-2">Protocol Error</h1>
+                    <p className="text-zinc-500 text-xs mb-8 font-medium">{message}</p>
                     <button
                         onClick={() => router.push("/")}
-                        className="w-full bg-white/5 border border-white/10 text-white px-6 py-4 rounded-xl font-black uppercase tracking-widest text-xs hover:bg-white/10 transition-all"
+                        className="w-full bg-zinc-100 border border-zinc-200 text-zinc-900 px-6 py-4 rounded-xl font-black uppercase tracking-widest text-xs hover:bg-zinc-200 transition-all"
                     >
                         Return Home
                     </button>
@@ -149,8 +149,8 @@ function LinkContent() {
             )}
 
             {code && (
-                <div className="mt-6 pt-4 border-t border-gray-700">
-                    <p className="text-gray-500 text-xs">Link Code: {code}</p>
+                <div className="mt-6 pt-4 border-t border-zinc-200">
+                    <p className="text-zinc-400 text-xs">Link Code: {code}</p>
                 </div>
             )}
         </div>
@@ -159,8 +159,8 @@ function LinkContent() {
 
 export default function LinkPage() {
     return (
-        <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center p-4">
-            <div className="bg-gray-800 p-8 rounded-xl shadow-2xl max-w-md w-full border border-gray-700">
+        <div className="min-h-screen bg-zinc-50 text-zinc-900 flex items-center justify-center p-4">
+            <div className="bg-white p-8 rounded-xl shadow-xl max-w-md w-full border border-zinc-200">
                 <Suspense fallback={<div className="text-center p-4">Loading...</div>}>
                     <LinkContent />
                 </Suspense>

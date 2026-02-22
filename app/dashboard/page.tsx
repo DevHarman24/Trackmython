@@ -167,7 +167,7 @@ export default function UserDashboard() {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
                     <div>
                         <p className="section-label mb-2">Dashboard</p>
-                        <h1 className="text-xl sm:text-2xl font-bold text-white mb-1">Tracked Events</h1>
+                        <h1 className="text-xl sm:text-2xl font-bold text-zinc-900 mb-1">Tracked Events</h1>
                         <p className="text-sm text-zinc-500">Manage your active event reminders.</p>
                     </div>
                     <Link href="/discover" className="btn-gradient text-xs py-2.5 px-5 w-full sm:w-auto text-center">
@@ -177,16 +177,16 @@ export default function UserDashboard() {
 
                 {/* Discord linking banner */}
                 {discordLinked === false && (
-                    <div className="mb-6 rounded-xl p-4 border border-indigo-500/20 bg-indigo-500/[0.06]">
+                    <div className="mb-6 rounded-xl p-4 border border-indigo-200 bg-indigo-50">
                         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
                             <div className="flex-1">
-                                <p className="text-sm font-medium text-white mb-1">🔔 Link Discord for deadline reminders</p>
-                                <p className="text-xs text-zinc-400">
+                                <p className="text-sm font-medium text-zinc-900 mb-1">🔔 Link Discord for deadline reminders</p>
+                                <p className="text-xs text-zinc-500">
                                     Get automated DM notifications before your hackathon deadlines.
                                 </p>
                                 <ol className="text-xs text-zinc-500 mt-2 space-y-0.5 list-decimal list-inside">
-                                    <li>Join the <a href="https://discord.gg/ftfCQanHn" target="_blank" rel="noopener noreferrer" className="text-indigo-400 font-medium hover:underline">Trackmython</a> Discord server</li>
-                                    <li>Run the <code className="bg-white/[0.06] px-1 py-0.5 rounded text-white font-mono text-[10px]">/link</code> command</li>
+                                    <li>Join the <a href="https://discord.gg/ftfCQanHn" target="_blank" rel="noopener noreferrer" className="text-indigo-600 font-medium hover:underline">Trackmython</a> Discord server</li>
+                                    <li>Run the <code className="bg-white border border-indigo-200 px-1 py-0.5 rounded text-indigo-700 font-mono text-[10px]">/link</code> command</li>
                                     <li>Click the link the bot sends you</li>
                                 </ol>
                             </div>
@@ -207,15 +207,15 @@ export default function UserDashboard() {
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
                         <div className="stat-card">
                             <p className="section-label mb-1">Tracking</p>
-                            <p className="text-xl font-bold text-white">{hacks.length}</p>
+                            <p className="text-xl font-bold text-zinc-900">{hacks.length}</p>
                         </div>
                         <div className="stat-card">
                             <p className="section-label mb-1">Upcoming</p>
-                            <p className="text-xl font-bold text-white">{upcoming.length}</p>
+                            <p className="text-xl font-bold text-zinc-900">{upcoming.length}</p>
                         </div>
                         <div className="stat-card hidden sm:block">
                             <p className="section-label mb-1">Ending Soon</p>
-                            <p className={`text-xl font-bold ${urgentCount > 0 ? 'text-amber-400' : 'text-white'}`}>{urgentCount}</p>
+                            <p className={`text-xl font-bold ${urgentCount > 0 ? 'text-amber-500' : 'text-zinc-900'}`}>{urgentCount}</p>
                         </div>
                     </div>
                 )}
@@ -224,13 +224,13 @@ export default function UserDashboard() {
                     <div className="flex justify-center py-20"><div className="w-7 h-7 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin" /></div>
                 ) : err ? (
                     <div className="text-center py-12">
-                        <p className="text-red-400 text-sm font-medium">{err}</p>
-                        <button onClick={fetchHacks} className="mt-2 text-xs text-indigo-400 hover:underline">Retry</button>
+                        <p className="text-red-500 text-sm font-medium">{err}</p>
+                        <button onClick={fetchHacks} className="mt-2 text-xs text-indigo-600 hover:underline">Retry</button>
                     </div>
                 ) : hacks.length === 0 ? (
                     <div className="text-center py-16 glass-panel">
-                        <p className="text-zinc-400 text-sm mb-2">You aren't tracking any hackathons yet.</p>
-                        <Link href="/discover" className="text-indigo-400 text-xs hover:underline">Browse events to track</Link>
+                        <p className="text-zinc-500 text-sm mb-2">You aren't tracking any hackathons yet.</p>
+                        <Link href="/discover" className="text-indigo-600 text-xs hover:underline">Browse events to track</Link>
                     </div>
                 ) : (
                     <div className="space-y-2">
@@ -241,8 +241,8 @@ export default function UserDashboard() {
 
                             return (
                                 <div key={h.id} className={`rounded-xl border transition-all ${isOpen
-                                    ? 'border-indigo-500/20 bg-white/[0.03]'
-                                    : 'border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.1]'}`}>
+                                    ? 'border-indigo-500/30 bg-indigo-50/30'
+                                    : 'border-zinc-200 bg-white hover:bg-zinc-50 hover:border-zinc-300'}`}>
 
                                     {/* Main Row */}
                                     <div className="flex items-center gap-4 px-4 py-4 cursor-pointer"
@@ -253,12 +253,12 @@ export default function UserDashboard() {
                                             : 'bg-indigo-500'}`} />
 
                                         <div className="flex-1 min-w-0">
-                                            <div className="font-semibold text-sm text-zinc-100 truncate">{h.title}</div>
+                                            <div className="font-semibold text-sm text-zinc-900 truncate">{h.title}</div>
                                             <div className="text-xs text-zinc-500 truncate mt-0.5">
                                                 {h.organisation || 'Unknown Org'} · <Link
                                                     href={`/discover?region=${encodeURIComponent(formatLocation(h.city || h.location, h.state).split(',')[0])}`}
                                                     onClick={(e) => e.stopPropagation()}
-                                                    className="hover:underline hover:text-indigo-400 transition-colors"
+                                                    className="hover:underline hover:text-indigo-600 transition-colors"
                                                 >
                                                     {formatLocation(h.city || h.location, h.state)}
                                                 </Link>
@@ -274,13 +274,13 @@ export default function UserDashboard() {
                                         </div>
 
                                         <div className="text-right shrink-0">
-                                            <div className="text-xs text-zinc-300 font-medium">{h.deadline ? fmtDate(h.deadline) : 'No Date'}</div>
-                                            <div className={`text-[10px] font-semibold mt-0.5 ${days != null && days <= 2 ? 'text-red-400' : 'text-zinc-500'}`}>
+                                            <div className="text-xs text-zinc-700 font-medium">{h.deadline ? fmtDate(h.deadline) : 'No Date'}</div>
+                                            <div className={`text-[10px] font-semibold mt-0.5 ${days != null && days <= 2 ? 'text-red-600' : 'text-zinc-500'}`}>
                                                 {h.deadline ? <Countdown targetDate={h.deadline} /> : 'No Date'}
                                             </div>
                                         </div>
 
-                                        <svg className={`w-4 h-4 text-zinc-600 transition-transform shrink-0 ${isOpen ? 'rotate-180' : ''}`}
+                                        <svg className={`w-4 h-4 text-zinc-500 transition-transform shrink-0 ${isOpen ? 'rotate-180' : ''}`}
                                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                         </svg>
@@ -288,7 +288,7 @@ export default function UserDashboard() {
 
                                     {/* Expanded */}
                                     {isOpen && (
-                                        <div className="px-4 pb-4 border-t border-white/[0.05]">
+                                        <div className="px-4 pb-4 border-t border-zinc-100">
                                             <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-4">
                                                 <D label="Prize Pool" value={safe(h.prizePool) || '—'} highlight />
                                                 <D label="Team Size" value={safe(h.teamSize) || '—'} />
@@ -297,7 +297,7 @@ export default function UserDashboard() {
                                             </div>
 
                                             {/* Mobile reminder pills */}
-                                            <div className="md:hidden mt-4 pt-4 border-t border-white/[0.05]">
+                                            <div className="md:hidden mt-4 pt-4 border-t border-zinc-100">
                                                 <div className="section-label mb-2">Reminders</div>
                                                 <div className="flex flex-wrap gap-2">
                                                     <ReminderPill label="24h" sent={reminders['24h']} />
@@ -307,7 +307,7 @@ export default function UserDashboard() {
                                                 </div>
                                             </div>
 
-                                            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 mt-6 pt-4 border-t border-white/[0.05]">
+                                            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 mt-6 pt-4 border-t border-zinc-100">
                                                 <a href={h.url} target="_blank" rel="noopener noreferrer"
                                                     className="btn-ghost text-xs py-2 sm:py-1.5 text-center">
                                                     Visit Website
@@ -315,7 +315,7 @@ export default function UserDashboard() {
                                                 <button
                                                     onClick={() => untrack(h.id)}
                                                     disabled={untractingIds.has(h.id)}
-                                                    className="text-xs py-2 sm:py-1.5 px-3 rounded-lg bg-red-500/10 text-red-400 border border-red-500/20 font-medium hover:bg-red-500/20 transition-all disabled:opacity-50 text-center">
+                                                    className="text-xs py-2 sm:py-1.5 px-3 rounded-lg bg-red-50 text-red-600 border border-red-200 font-medium hover:bg-red-100 transition-all disabled:opacity-50 text-center">
                                                     {untractingIds.has(h.id) ? 'Untracking...' : 'Untrack Event'}
                                                 </button>
                                             </div>
@@ -335,7 +335,7 @@ function D({ label, value, highlight }: { label: string; value: React.ReactNode;
     return (
         <div>
             <div className="section-label mb-0.5">{label}</div>
-            <div className={`text-[12px] ${highlight ? 'text-amber-400' : 'text-zinc-300'}`}>{value}</div>
+            <div className={`text-[12px] ${highlight ? 'text-amber-500' : 'text-zinc-700'}`}>{value}</div>
         </div>
     );
 }
@@ -343,7 +343,7 @@ function D({ label, value, highlight }: { label: string; value: React.ReactNode;
 function ReminderPill({ label, sent }: { label: string, sent: boolean }) {
     return (
         <div className={`badge text-[10px] py-0.5 ${sent
-            ? '!bg-emerald-500/10 !border-emerald-500/20 !text-emerald-400'
+            ? '!bg-emerald-500/10 !border-emerald-500/20 !text-emerald-600'
             : ''
             }`}>
             <span>{label}</span>
