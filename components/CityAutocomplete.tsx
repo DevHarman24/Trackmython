@@ -10,7 +10,7 @@ interface CityAutocompleteProps {
     placeholder?: string;
     className?: string; // For the input element
     wrapperClassName?: string; // For the container
-    variant?: 'zinc' | 'glass'; // 'zinc' for discover page, 'glass' for settings page
+    variant?: 'zinc' | 'glass'; // Deprecated, kept for compat
 }
 
 export default function CityAutocomplete({
@@ -33,9 +33,6 @@ export default function CityAutocomplete({
                 const matches = findMatchingCities(value);
                 setSuggestions(matches);
                 // Only show if we have matches and the input isn't exactly the canonical name of the top match
-                // (This prevents the dropdown from showing after selection if the user types exactly)
-                // Actually, let's just show if there are matches and it's focused.
-                // But we don't want it to pop up immediately after selection if the value matches exactly.
                 const exactMatch = matches.find(m => m.matchType === 'exact' && m.city.canonical.toLowerCase() === value.toLowerCase());
                 if (exactMatch && matches.length === 1) {
                     setShowSuggestions(false);
@@ -82,25 +79,17 @@ export default function CityAutocomplete({
         }
     };
 
-    // Styles based on variant
+    // Styles (Unified Light Theme)
     const inputBaseStyles = "w-full rounded-lg px-3.5 py-2.5 text-sm transition-all focus:outline-none";
-    const variantStyles = variant === 'zinc'
-        ? "bg-zinc-900/60 border border-zinc-800 text-zinc-200 placeholder:text-zinc-700 focus:border-blue-500/40"
-        : "bg-black/30 border border-white/20 text-white placeholder-gray-500 focus:ring-2 focus:ring-purple-500";
+    const variantStyles = "bg-white border border-zinc-200 text-zinc-900 placeholder:text-zinc-500 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/20";
 
     const dropdownBaseStyles = "absolute z-50 w-full mt-1 rounded-lg border shadow-xl overflow-hidden max-h-60 overflow-y-auto";
-    const dropdownVariantStyles = variant === 'zinc'
-        ? "bg-[#0c0c10] border-zinc-800"
-        : "bg-slate-900/90 backdrop-blur-md border-white/10";
+    const dropdownVariantStyles = "bg-white border-zinc-200";
 
     const itemBaseStyles = "px-3.5 py-2.5 text-sm cursor-pointer transition-colors flex justify-between items-center group";
-    const itemVariantStyles = variant === 'zinc'
-        ? "text-zinc-300 hover:bg-zinc-800 hover:text-white"
-        : "text-gray-300 hover:bg-white/10 hover:text-white";
+    const itemVariantStyles = "text-zinc-700 hover:bg-zinc-50 hover:text-zinc-900";
 
-    const subtextStyles = variant === 'zinc'
-        ? "text-xs text-zinc-600 group-hover:text-zinc-500"
-        : "text-xs text-gray-500 group-hover:text-gray-400";
+    const subtextStyles = "text-xs text-zinc-500 group-hover:text-zinc-600";
 
     return (
         <div ref={wrapperRef} className={`relative ${wrapperClassName || ''}`}>
@@ -125,7 +114,7 @@ export default function CityAutocomplete({
                         <div
                             key={`${match.city.canonical}-${index}`}
                             onClick={() => handleSelect(match.city.canonical)}
-                            className={itemVariantStyles}
+                            className={`${itemBaseStyles} ${itemVariantStyles}`}
                         >
                             <span className="font-medium">
                                 {match.city.canonical}

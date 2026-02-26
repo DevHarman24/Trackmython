@@ -84,7 +84,7 @@ export default function SubmitHackathon() {
             <main className="max-w-2xl mx-auto px-4 md:px-6 py-8 relative">
                 <div className="text-center mb-8">
                     <p className="section-label mb-2">Contribute</p>
-                    <h1 className="text-xl sm:text-2xl font-bold text-white mb-2">
+                    <h1 className="text-xl sm:text-2xl font-bold text-zinc-900 mb-2">
                         Submit a Hackathon
                     </h1>
                     <p className="text-sm text-zinc-500">
@@ -94,7 +94,7 @@ export default function SubmitHackathon() {
 
                 {!user ? (
                     <div className="glass-panel p-8 text-center">
-                        <p className="text-zinc-400 text-sm mb-4">You must be signed in to submit events.</p>
+                        <p className="text-zinc-500 text-sm mb-4">You must be signed in to submit events.</p>
                         <button
                             onClick={signInWithGoogle}
                             className="btn-gradient py-2.5 px-6 text-sm"
@@ -103,20 +103,20 @@ export default function SubmitHackathon() {
                         </button>
                     </div>
                 ) : success ? (
-                    <div className="glass-panel p-8 text-center" style={{ borderColor: 'rgba(16,185,129,0.2)' }}>
+                    <div className="glass-panel p-8 text-center" style={{ borderColor: 'rgba(16,185,129,0.3)' }}>
                         <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4"
                             style={{ background: 'rgba(16,185,129,0.1)' }}>
-                            <svg className="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                             </svg>
                         </div>
-                        <h3 className="text-lg font-semibold text-emerald-400 mb-2">Submission Received!</h3>
-                        <p className="text-zinc-400 text-sm">
+                        <h3 className="text-lg font-semibold text-emerald-600 mb-2">Submission Received!</h3>
+                        <p className="text-zinc-600 text-sm">
                             Thanks for your submission. An admin will review it shortly.
                         </p>
                         <button
                             onClick={() => setSuccess(false)}
-                            className="mt-6 text-sm text-zinc-500 hover:text-white transition-colors underline"
+                            className="mt-6 text-sm text-zinc-500 hover:text-zinc-900 transition-colors underline"
                         >
                             Submit another
                         </button>
@@ -125,13 +125,13 @@ export default function SubmitHackathon() {
                     <form onSubmit={handleSubmit} className="glass-panel p-5 sm:p-6 space-y-5">
 
                         {error && (
-                            <div className="bg-red-500/10 border border-red-500/20 text-red-400 text-xs px-3 py-2.5 rounded-lg">
+                            <div className="bg-red-50 border border-red-200 text-red-600 text-xs px-3 py-2.5 rounded-lg">
                                 {error}
                             </div>
                         )}
 
                         <div>
-                            <label className="section-label mb-2 block">Event Title <span className="text-red-400">*</span></label>
+                            <label className="section-label mb-2 block">Event Title <span className="text-red-600">*</span></label>
                             <input
                                 required
                                 type="text"
@@ -144,7 +144,7 @@ export default function SubmitHackathon() {
                         </div>
 
                         <div>
-                            <label className="section-label mb-2 block">Description <span className="text-red-400">*</span></label>
+                            <label className="section-label mb-2 block">Description <span className="text-red-600">*</span></label>
                             <textarea
                                 required
                                 name="description"
@@ -158,7 +158,7 @@ export default function SubmitHackathon() {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label className="section-label mb-2 block">Event Link <span className="text-red-400">*</span></label>
+                                <label className="section-label mb-2 block">Event Link <span className="text-red-600">*</span></label>
                                 <input
                                     required
                                     type="url"
@@ -171,7 +171,7 @@ export default function SubmitHackathon() {
                             </div>
 
                             <div>
-                                <label className="section-label mb-2 block">Category <span className="text-red-400">*</span></label>
+                                <label className="section-label mb-2 block">Category <span className="text-red-600">*</span></label>
                                 <select
                                     required
                                     name="category"
@@ -191,19 +191,19 @@ export default function SubmitHackathon() {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label className="section-label mb-2 block">Registration Deadline <span className="text-red-400">*</span></label>
+                                <label className="section-label mb-2 block">Registration Deadline <span className="text-red-600">*</span></label>
                                 <input
                                     required
                                     type="datetime-local"
                                     name="registrationDeadline"
                                     value={form.registrationDeadline}
                                     onChange={handleChange}
-                                    className="glass-input [color-scheme:dark]"
+                                    className="glass-input"
                                 />
                             </div>
 
                             <div>
-                                <label className="section-label mb-2 block">Location <span className="text-red-400">*</span></label>
+                                <label className="section-label mb-2 block">Location <span className="text-red-600">*</span></label>
                                 <input
                                     required
                                     type="text"

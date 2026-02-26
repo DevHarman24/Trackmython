@@ -71,18 +71,18 @@ export default function LandingPage() {
 
             {/* ── Hero ── */}
             <section className="relative overflow-hidden">
-                {/* Decorative orbs */}
-                <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
-                <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none" />
+                {/* Decorative orbs (Updated for light theme) */}
+                <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-400/20 rounded-full blur-[120px] pointer-events-none" />
+                <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-purple-400/20 rounded-full blur-[100px] pointer-events-none" />
 
                 <div className="max-w-6xl mx-auto px-4 md:px-6 pt-20 sm:pt-28 pb-20 sm:pb-28 text-center relative z-10">
                     <h1 className="animate-fade-in-up delay-100 text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
                         <span className="text-gradient">Never Miss a</span>
                         <br />
-                        <span className="text-white">Hackathon Again</span>
+                        <span className="text-zinc-900">Hackathon Again</span>
                     </h1>
 
-                    <p className="animate-fade-in-up delay-200 text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed text-balance">
+                    <p className="animate-fade-in-up delay-200 text-base sm:text-lg text-zinc-600 max-w-2xl mx-auto mb-10 leading-relaxed text-balance">
                         A community-driven platform to discover, track, and dominate global hackathons.
                         Join our Discord to enable real-time tracking and never miss a deadline!
                     </p>
@@ -106,12 +106,12 @@ export default function LandingPage() {
             <section className="max-w-6xl mx-auto px-4 md:px-6 pb-20 sm:pb-28">
                 <div className="text-center mb-12">
                     <p className="section-label mb-3">Why Trackmython</p>
-                    <h2 className="text-2xl sm:text-3xl font-bold text-white">Everything you need to stay ahead</h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900">Everything you need to stay ahead</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                     {FEATURES.map((f, i) => (
-                        <div key={i} className="glass-panel p-6 relative overflow-hidden group hover:border-white/[0.12] transition-all">
+                        <div key={i} className="glass-panel p-6 relative overflow-hidden group hover:border-zinc-300 transition-all">
                             {/* Top accent line */}
                             <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: `linear-gradient(90deg, ${f.color}, transparent)` }} />
 
@@ -119,8 +119,8 @@ export default function LandingPage() {
                                 style={{ background: `${f.color}15` }}>
                                 {f.icon}
                             </div>
-                            <h3 className="text-base font-semibold text-white mb-2">{f.title}</h3>
-                            <p className="text-sm text-zinc-400 leading-relaxed">{f.desc}</p>
+                            <h3 className="text-base font-semibold text-zinc-900 mb-2">{f.title}</h3>
+                            <p className="text-sm text-zinc-600 leading-relaxed">{f.desc}</p>
                         </div>
                     ))}
                 </div>
@@ -131,9 +131,9 @@ export default function LandingPage() {
                 <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
                     <div>
                         <p className="section-label mb-2">Trending Now</p>
-                        <h2 className="text-xl sm:text-2xl font-bold text-white">Featured Events</h2>
+                        <h2 className="text-xl sm:text-2xl font-bold text-zinc-900">Featured Events</h2>
                     </div>
-                    <Link href="/discover" className="text-sm text-zinc-400 hover:text-white transition-colors flex items-center gap-1">
+                    <Link href="/discover" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors flex items-center gap-1">
                         View all <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                     </Link>
                 </div>
@@ -141,7 +141,7 @@ export default function LandingPage() {
                 {loading ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                         {[1, 2, 3].map(i => (
-                            <div key={i} className="h-52 rounded-2xl bg-white/[0.03] animate-pulse border border-white/[0.05]" />
+                            <div key={i} className="h-52 rounded-2xl bg-zinc-100 animate-pulse border border-zinc-200" />
                         ))}
                     </div>
                 ) : (
@@ -170,19 +170,19 @@ export default function LandingPage() {
                                         </span>
 
                                         {isUrgent && (
-                                            <span className="text-[10px] font-semibold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-2 py-0.5 rounded-full">
+                                            <span className="text-[10px] font-semibold text-amber-500 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded-full">
                                                 {days}d left
                                             </span>
                                         )}
                                         {isExpired && (
-                                            <span className="text-[10px] font-semibold text-zinc-500 bg-zinc-500/10 border border-zinc-500/20 px-2 py-0.5 rounded-full">
+                                            <span className="text-[10px] font-semibold text-zinc-500 bg-zinc-100 border border-zinc-200 px-2 py-0.5 rounded-full">
                                                 Ended
                                             </span>
                                         )}
                                     </div>
 
                                     <div className="flex-1 relative z-10 pointer-events-none">
-                                        <h3 className="text-[15px] font-semibold text-white mb-1.5 group-hover:text-blue-400 transition-colors line-clamp-2">
+                                        <h3 className="text-[15px] font-semibold text-zinc-900 mb-1.5 group-hover:text-blue-600 transition-colors line-clamp-2">
                                             {h.title}
                                         </h3>
                                         <p className="text-xs text-zinc-500 mb-4 line-clamp-1">
@@ -190,19 +190,19 @@ export default function LandingPage() {
                                         </p>
                                     </div>
 
-                                    <div className="pt-3 border-t border-white/[0.05] flex items-center justify-between text-xs relative z-10 pointer-events-none">
+                                    <div className="pt-3 border-t border-zinc-100 flex items-center justify-between text-xs relative z-10 pointer-events-none">
                                         <div>
-                                            <span className="text-zinc-600 text-[10px] font-medium uppercase tracking-wider">Deadline</span>
-                                            <p className={`font-medium mt-0.5 ${isUrgent ? 'text-amber-400' : isExpired ? 'text-zinc-600' : 'text-zinc-300'}`}>
+                                            <span className="text-zinc-500 text-[10px] font-medium uppercase tracking-wider">Deadline</span>
+                                            <p className={`font-medium mt-0.5 ${isUrgent ? 'text-amber-500' : isExpired ? 'text-zinc-500' : 'text-zinc-700'}`}>
                                                 {h.deadline ? fmtDate(h.deadline) : 'TBA'}
                                             </p>
                                         </div>
                                         <div className="text-right pointer-events-auto">
-                                            <span className="text-zinc-600 text-[10px] font-medium uppercase tracking-wider">Location</span>
-                                            <p className="text-zinc-300 font-medium mt-0.5">
+                                            <span className="text-zinc-500 text-[10px] font-medium uppercase tracking-wider">Location</span>
+                                            <p className="text-zinc-700 font-medium mt-0.5">
                                                 <Link
                                                     href={`/discover?region=${encodeURIComponent(formatLocation(h.city, h.state).split(',')[0])}`}
-                                                    className="hover:text-blue-400 transition-colors"
+                                                    className="hover:text-blue-600 transition-colors"
                                                 >
                                                     {formatLocation(h.city, h.state)}
                                                 </Link>
@@ -217,17 +217,17 @@ export default function LandingPage() {
             </section>
 
             {/* ── Footer ── */}
-            <footer className="border-t border-white/[0.05] py-8">
-                <div className="max-w-6xl mx-auto px-4 md:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-600">
+            <footer className="border-t border-zinc-200 py-8">
+                <div className="max-w-6xl mx-auto px-4 md:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
                     <span className="flex items-center gap-2">
                         <img src="/logo.svg" alt="Trackmython" className="w-5 h-5 rounded" />
                         © {new Date().getFullYear()} Trackmython
                     </span>
                     <div className="flex items-center gap-4">
                         <a href="https://discord.gg/23HxCVyuUK" target="_blank" rel="noopener noreferrer"
-                            className="hover:text-zinc-400 transition-colors">Discord</a>
-                        <Link href="/discover" className="hover:text-zinc-400 transition-colors">Discover</Link>
-                        <Link href="/submit" className="hover:text-zinc-400 transition-colors">Submit</Link>
+                            className="hover:text-zinc-900 transition-colors">Discord</a>
+                        <Link href="/discover" className="hover:text-zinc-900 transition-colors">Discover</Link>
+                        <Link href="/submit" className="hover:text-zinc-900 transition-colors">Submit</Link>
                     </div>
                 </div>
             </footer>

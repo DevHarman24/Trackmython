@@ -88,8 +88,8 @@ export default function SettingsPage() {
                 <Navbar />
                 <div className="flex items-center justify-center px-4 pt-24">
                     <div className="max-w-sm w-full glass-panel p-8 text-center">
-                        <h2 className="text-xl font-bold text-white mb-3">Sign In Required</h2>
-                        <p className="text-sm text-zinc-400 mb-6">
+                        <h2 className="text-xl font-bold text-zinc-900 mb-3">Sign In Required</h2>
+                        <p className="text-sm text-zinc-500 mb-6">
                             Sign in to manage your settings and hackathon notifications.
                         </p>
                         <button
@@ -111,7 +111,7 @@ export default function SettingsPage() {
             <main className="max-w-2xl mx-auto px-4 md:px-6 py-8" style={{ position: 'relative', zIndex: 1 }}>
                 <div className="mb-8">
                     <p className="section-label mb-2">Account</p>
-                    <h1 className="text-xl sm:text-2xl font-bold text-white mb-1">Settings</h1>
+                    <h1 className="text-xl sm:text-2xl font-bold text-zinc-900 mb-1">Settings</h1>
                     <p className="text-sm text-zinc-500">Manage your location, notifications, and Discord connection.</p>
                 </div>
 
@@ -122,7 +122,7 @@ export default function SettingsPage() {
 
                         {/* Location */}
                         <div className="glass-panel p-5">
-                            <label className="block text-sm font-semibold text-white mb-1">
+                            <label className="block text-sm font-semibold text-zinc-900 mb-1">
                                 📍 Your Location
                             </label>
                             <p className="text-xs text-zinc-500 mb-4">
@@ -142,7 +142,7 @@ export default function SettingsPage() {
                                     <div className="flex flex-wrap gap-1.5">
                                         {nearbyLocations.map((loc, i) => (
                                             <span key={i} className="badge"
-                                                style={{ background: 'rgba(139,92,246,0.08)', borderColor: 'rgba(139,92,246,0.2)', color: '#a78bfa' }}>
+                                                style={{ background: 'rgba(139,92,246,0.08)', borderColor: 'rgba(139,92,246,0.2)', color: '#8b5cf6' }}>
                                                 {loc}
                                             </span>
                                         ))}
@@ -153,20 +153,20 @@ export default function SettingsPage() {
 
                         {/* Discord */}
                         <div className="glass-panel p-5">
-                            <div className="text-sm font-semibold text-white mb-1">🔗 Discord Integration</div>
+                            <div className="text-sm font-semibold text-zinc-900 mb-1">🔗 Discord Integration</div>
                             <p className="text-xs text-zinc-500 mb-5">
                                 Link your Discord for DM notifications about deadlines.
                             </p>
 
                             {/* Toggle */}
-                            <div className="flex items-center justify-between gap-4 mb-5 pb-5 border-b border-white/[0.05]">
+                            <div className="flex items-center justify-between gap-4 mb-5 pb-5 border-b border-zinc-200">
                                 <div>
-                                    <div className="text-sm font-medium text-white">DM Notifications</div>
+                                    <div className="text-sm font-medium text-zinc-900">DM Notifications</div>
                                     <div className="text-xs text-zinc-500">Reminders at 24h, 12h, 6h, and 2h before deadlines</div>
                                 </div>
                                 <button
                                     onClick={() => setDmNotifications(!dmNotifications)}
-                                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${dmNotifications ? 'bg-indigo-500' : 'bg-zinc-700'
+                                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${dmNotifications ? 'bg-indigo-500' : 'bg-zinc-300'
                                         }`}
                                 >
                                     <span
@@ -185,11 +185,11 @@ export default function SettingsPage() {
                                             </svg>
                                         </div>
                                         <div className="min-w-0">
-                                            <div className="font-medium text-sm text-white truncate">
+                                            <div className="font-medium text-sm text-zinc-900 truncate">
                                                 @{discordUsername || discordId}
                                             </div>
-                                            <div className="text-xs text-emerald-400 font-medium flex items-center gap-1">
-                                                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
+                                            <div className="text-xs text-emerald-600 font-medium flex items-center gap-1">
+                                                <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
                                                 Connected
                                             </div>
                                         </div>
@@ -222,17 +222,17 @@ export default function SettingsPage() {
                                             }
                                         }}
                                         disabled={unlinking}
-                                        className="text-xs py-2 px-4 rounded-lg bg-red-500/10 text-red-400 border border-red-500/20 font-medium hover:bg-red-500/20 transition-all disabled:opacity-50 text-center"
+                                        className="text-xs py-2 px-4 rounded-lg bg-red-50 text-red-600 border border-red-200 font-medium hover:bg-red-100 transition-all disabled:opacity-50 text-center"
                                     >
                                         {unlinking ? 'Unlinking...' : 'Unlink'}
                                     </button>
                                 </div>
                             ) : (
-                                <div className="rounded-lg bg-white/[0.02] border border-white/[0.05] p-4">
-                                    <div className="text-xs text-zinc-300 mb-2.5">To link your Discord:</div>
+                                <div className="rounded-lg bg-zinc-50 border border-zinc-200 p-4">
+                                    <div className="text-xs text-zinc-700 mb-2.5">To link your Discord:</div>
                                     <ol className="text-xs text-zinc-500 space-y-1.5 list-decimal list-inside">
                                         <li>Join the <a href="https://discord.gg/23HxCVyuUK" target="_blank" rel="noopener noreferrer" className="text-[#5865F2] font-medium hover:underline">Trackmython</a> Discord server</li>
-                                        <li>Run the <code className="bg-white/[0.06] px-1.5 py-0.5 rounded text-white font-mono text-[11px]">/link</code> command</li>
+                                        <li>Run the <code className="bg-white border border-zinc-200 px-1.5 py-0.5 rounded text-indigo-600 font-mono text-[11px]">/link</code> command</li>
                                         <li>Click the link the bot sends you</li>
                                     </ol>
                                 </div>
@@ -240,10 +240,10 @@ export default function SettingsPage() {
                         </div>
 
                         {/* Danger Zone */}
-                        <div className="rounded-2xl p-5 border border-red-500/15 bg-red-500/[0.03]">
-                            <div className="text-sm font-semibold text-red-400 mb-1">Reset Data</div>
+                        <div className="rounded-2xl p-5 border border-red-200 bg-red-50/50">
+                            <div className="text-sm font-semibold text-red-600 mb-1">Reset Data</div>
                             <p className="text-xs text-zinc-500 mb-4">
-                                Delete all discovered hackathons and cached data. <span className="text-red-400/80">This cannot be undone.</span>
+                                Delete all discovered hackathons and cached data. <span className="text-red-600/80">This cannot be undone.</span>
                             </p>
                             <button
                                 onClick={async () => {
@@ -271,7 +271,7 @@ export default function SettingsPage() {
                                         alert('Network error while resetting data');
                                     }
                                 }}
-                                className="text-xs py-2 px-4 rounded-lg bg-red-500/10 text-red-400 border border-red-500/20 font-medium hover:bg-red-500/20 transition-all"
+                                className="text-xs py-2 px-4 rounded-lg bg-red-50 text-red-600 border border-red-200 font-medium hover:bg-red-100 transition-all"
                             >
                                 Reset All Data
                             </button>

@@ -23,7 +23,7 @@ export default function Navbar() {
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2.5 hover:opacity-90 transition-opacity">
                     <img src="/logo.svg" alt="Trackmython" className="w-7 h-7 rounded-lg" />
-                    <span className="font-semibold text-[15px] text-white tracking-tight">Trackmython</span>
+                    <span className="font-semibold text-[15px] text-zinc-900 tracking-tight">Trackmython</span>
                 </Link>
 
                 {/* Desktop nav */}
@@ -33,8 +33,8 @@ export default function Navbar() {
                             key={link.href}
                             href={link.href}
                             className={`px-3 py-1.5 rounded-md text-[13px] font-medium transition-all ${pathname === link.href
-                                ? 'text-white bg-white/[0.08]'
-                                : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04]'
+                                ? 'text-zinc-900 bg-zinc-100'
+                                : 'text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50'
                                 }`}
                         >
                             {link.label}
@@ -53,7 +53,7 @@ export default function Navbar() {
                                     </span>
                                     <button
                                         onClick={signOut}
-                                        className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+                                        className="text-xs text-zinc-500 hover:text-zinc-700 transition-colors"
                                     >
                                         Sign out
                                     </button>
@@ -71,7 +71,7 @@ export default function Navbar() {
 
                     {/* Mobile hamburger */}
                     <button
-                        className="md:hidden p-1.5 rounded-md hover:bg-white/[0.06] transition-colors"
+                        className="md:hidden p-1.5 rounded-md hover:bg-zinc-100 text-zinc-600 transition-colors"
                         onClick={() => setMobileOpen(!mobileOpen)}
                         aria-label="Toggle menu"
                     >
@@ -95,15 +95,15 @@ export default function Navbar() {
 
             {/* Mobile dropdown */}
             {mobileOpen && (
-                <div className="md:hidden border-t border-white/[0.06] px-4 py-3 space-y-1">
+                <div className="md:hidden border-t border-zinc-200 px-4 py-3 space-y-1 bg-white/50 backdrop-blur-md">
                     {NAV_LINKS.map(link => (
                         <Link
                             key={link.href}
                             href={link.href}
                             onClick={() => setMobileOpen(false)}
                             className={`block px-3 py-2.5 rounded-md text-sm font-medium transition-all ${pathname === link.href
-                                ? 'text-white bg-white/[0.08]'
-                                : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04]'
+                                ? 'text-zinc-900 bg-zinc-100'
+                                : 'text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50'
                                 }`}
                         >
                             {link.label}

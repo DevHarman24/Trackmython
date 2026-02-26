@@ -168,7 +168,7 @@ function DiscoverInner() {
                     <div className="max-w-2xl mx-auto animate-fade-in-up">
                         <div className="text-center mb-10 mt-8">
                             <p className="section-label mb-3">Discover</p>
-                            <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Find Your Next Challenge</h1>
+                            <h1 className="text-2xl sm:text-3xl font-bold text-zinc-900 mb-2">Find Your Next Challenge</h1>
                             <p className="text-sm text-zinc-500">Select what you're looking for and we'll find the best matches.</p>
                         </div>
 
@@ -182,16 +182,16 @@ function DiscoverInner() {
                                     return (
                                         <button key={cat.id} onClick={() => toggleCat(cat.id)}
                                             className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg border transition-all text-left ${checked
-                                                ? 'border-indigo-500/30 text-white'
-                                                : 'border-white/[0.06] text-zinc-400 hover:border-white/[0.12] hover:text-zinc-200'}`}
-                                            style={checked ? { background: 'rgba(99,102,241,0.08)' } : { background: 'var(--bg-elevated)' }}>
+                                                ? 'border-indigo-500 text-indigo-600'
+                                                : 'border-zinc-200 text-zinc-600 hover:border-zinc-300 hover:text-zinc-900'}`}
+                                            style={checked ? { background: 'rgba(99,102,241,0.05)' } : { background: 'var(--bg-elevated)' }}>
                                             <div className={`w-4 h-4 rounded flex items-center justify-center border transition-all shrink-0 ${checked
                                                 ? 'bg-indigo-500 border-indigo-500'
-                                                : 'border-zinc-600'}`}>
+                                                : 'border-zinc-400'}`}>
                                                 {checked && <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>}
                                             </div>
                                             <span className="text-[12px] font-medium flex-1">{cat.id}</span>
-                                            {count > 0 && <span className="text-[10px] text-zinc-600 font-mono">{count}</span>}
+                                            {count > 0 && <span className="text-[10px] text-zinc-500 font-mono">{count}</span>}
                                         </button>
                                     );
                                 })}
@@ -200,7 +200,7 @@ function DiscoverInner() {
 
                         {/* Location */}
                         <div className="mb-4">
-                            <label className="section-label mb-2 block">Location <span className="text-zinc-700 font-normal normal-case tracking-normal">(optional)</span></label>
+                            <label className="section-label mb-2 block">Location <span className="text-zinc-500 font-normal normal-case tracking-normal">(optional)</span></label>
                             <CityAutocomplete
                                 value={locationInput}
                                 onChange={setLocationInput}
@@ -216,7 +216,7 @@ function DiscoverInner() {
 
                         {/* Search */}
                         <div className="mb-6">
-                            <label className="section-label mb-2 block">Search <span className="text-zinc-700 font-normal normal-case tracking-normal">(optional)</span></label>
+                            <label className="section-label mb-2 block">Search <span className="text-zinc-500 font-normal normal-case tracking-normal">(optional)</span></label>
                             <input type="text"
                                 placeholder="Keywords, tags, org name..."
                                 value={search}
@@ -229,12 +229,12 @@ function DiscoverInner() {
                         <div className="mb-8">
                             <button onClick={() => setShowOnline(!showOnline)}
                                 className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg border transition-all text-left w-full ${showOnline
-                                    ? 'border-indigo-500/30 text-white'
-                                    : 'border-white/[0.06] text-zinc-400 hover:border-white/[0.12] hover:text-zinc-200'}`}
-                                style={showOnline ? { background: 'rgba(99,102,241,0.08)' } : { background: 'var(--bg-elevated)' }}>
+                                    ? 'border-indigo-500 text-indigo-600'
+                                    : 'border-zinc-200 text-zinc-600 hover:border-zinc-300 hover:text-zinc-900'}`}
+                                style={showOnline ? { background: 'rgba(99,102,241,0.05)' } : { background: 'var(--bg-elevated)' }}>
                                 <div className={`w-4 h-4 rounded flex items-center justify-center border transition-all shrink-0 ${showOnline
                                     ? 'bg-indigo-500 border-indigo-500'
-                                    : 'border-zinc-600'}`}>
+                                    : 'border-zinc-400'}`}>
                                     {showOnline && <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>}
                                 </div>
                                 <span className="text-[12px] font-medium">Include Online / Virtual Events</span>
@@ -248,7 +248,7 @@ function DiscoverInner() {
 
                         {!user && (
                             <p className="text-center text-xs text-zinc-600 mt-4">
-                                <button onClick={signInWithGoogle} className="text-indigo-400 hover:underline">Sign in</button> to track events and get Discord reminders.
+                                <button onClick={signInWithGoogle} className="text-indigo-600 hover:underline">Sign in</button> to track events and get Discord reminders.
                             </p>
                         )}
                     </div>
@@ -259,23 +259,23 @@ function DiscoverInner() {
                     <>
                         {/* Active filters bar */}
                         <div className="flex flex-wrap items-center gap-2 mb-5">
-                            <button onClick={() => setPhase('select')} className="badge hover:border-white/[0.15] hover:text-white transition-all cursor-pointer">
+                            <button onClick={() => setPhase('select')} className="badge hover:border-zinc-300 hover:text-zinc-900 transition-all cursor-pointer">
                                 <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                                 Filters
                             </button>
 
                             {selectedCats.map(c => (
-                                <span key={c} className="badge" style={{ background: 'rgba(99,102,241,0.08)', borderColor: 'rgba(99,102,241,0.2)', color: '#818cf8' }}>
+                                <span key={c} className="badge" style={{ background: 'rgba(99,102,241,0.08)', borderColor: 'rgba(99,102,241,0.2)', color: '#6366f1' }}>
                                     {c}
-                                    <button onClick={() => { toggleCat(c); setTimeout(findEvents, 0); }} className="ml-0.5 hover:text-white">
+                                    <button onClick={() => { toggleCat(c); setTimeout(findEvents, 0); }} className="ml-0.5 hover:text-zinc-900">
                                         <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                                     </button>
                                 </span>
                             ))}
                             {locationInput && (
-                                <span className="badge" style={{ background: 'rgba(139,92,246,0.08)', borderColor: 'rgba(139,92,246,0.2)', color: '#a78bfa' }}>
+                                <span className="badge" style={{ background: 'rgba(139,92,246,0.08)', borderColor: 'rgba(139,92,246,0.2)', color: '#8b5cf6' }}>
                                     📍 {locationInput}
-                                    <button onClick={() => { setLocationInput(''); setTimeout(findEvents, 0); }} className="ml-0.5 hover:text-white">
+                                    <button onClick={() => { setLocationInput(''); setTimeout(findEvents, 0); }} className="ml-0.5 hover:text-zinc-900">
                                         <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                                     </button>
                                 </span>
@@ -283,13 +283,13 @@ function DiscoverInner() {
                             <div className="flex-1" />
                             <button onClick={() => setShowOnline(!showOnline)}
                                 className={`badge cursor-pointer transition-all ${showOnline
-                                    ? 'border-indigo-500/20 text-indigo-400'
-                                    : 'text-zinc-500 hover:text-zinc-300'}`}
+                                    ? 'border-indigo-500/20 text-indigo-600'
+                                    : 'text-zinc-500 hover:text-zinc-700'}`}
                                 style={showOnline ? { background: 'rgba(99,102,241,0.08)' } : {}}>
                                 {showOnline ? '🌐 Online ✓' : '🌐 Online'}
                             </button>
                             <span className="text-[11px] text-zinc-600 font-mono">{total} result{total !== 1 ? 's' : ''}</span>
-                            {urgent > 0 && <span className="text-[11px] text-amber-400 font-medium">{urgent} ending soon</span>}
+                            {urgent > 0 && <span className="text-[11px] text-amber-500 font-medium">{urgent} ending soon</span>}
                         </div>
 
                         {/* States */}
@@ -297,13 +297,13 @@ function DiscoverInner() {
                             <div className="flex justify-center py-20"><div className="w-7 h-7 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin" /></div>
                         ) : err ? (
                             <div className="text-center py-12">
-                                <p className="text-red-400 text-sm font-medium">{err}</p>
-                                <button onClick={findEvents} className="mt-2 text-xs text-indigo-400 hover:underline">Retry</button>
+                                <p className="text-red-500 text-sm font-medium">{err}</p>
+                                <button onClick={findEvents} className="mt-2 text-xs text-indigo-600 hover:underline">Retry</button>
                             </div>
                         ) : hacks.length === 0 ? (
                             <div className="text-center py-16">
-                                <p className="text-zinc-400 text-sm mb-2">No events match your criteria</p>
-                                <button onClick={() => setPhase('select')} className="text-indigo-400 text-xs hover:underline">Change Filters</button>
+                                <p className="text-zinc-500 text-sm mb-2">No events match your criteria</p>
+                                <button onClick={() => setPhase('select')} className="text-indigo-600 text-xs hover:underline">Change Filters</button>
                             </div>
                         ) : (
                             <>
@@ -317,7 +317,7 @@ function DiscoverInner() {
                                         const prize = safe(h.prizePool);
                                         const team = safe(h.teamSize);
                                         const deadlineColor = days !== null
-                                            ? days <= 1 ? 'text-red-400' : days <= 3 ? 'text-amber-400' : days <= 7 ? 'text-yellow-500' : 'text-zinc-400'
+                                            ? days <= 1 ? 'text-red-500' : days <= 3 ? 'text-amber-500' : days <= 7 ? 'text-yellow-600' : 'text-zinc-500'
                                             : 'text-zinc-600';
                                         const catObj = CATS.find(c => c.id === h.category);
                                         const catColor = catObj?.color || '#6b7280';
@@ -325,8 +325,8 @@ function DiscoverInner() {
                                         return (
                                             <Fragment key={h.id || i}>
                                                 <div className={`rounded-xl border transition-all ${isOpen
-                                                    ? 'border-indigo-500/20 bg-white/[0.03]'
-                                                    : 'border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.1]'}`}>
+                                                    ? 'border-indigo-500/30 bg-indigo-50/30'
+                                                    : 'border-zinc-200 bg-white hover:bg-zinc-50 hover:border-zinc-300'}`}>
 
                                                     {/* ── Row ── */}
                                                     <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 px-4 py-3.5 cursor-pointer"
@@ -345,7 +345,7 @@ function DiscoverInner() {
 
                                                             {/* Title + sub */}
                                                             <div className="flex-1 min-w-0">
-                                                                <div className="font-semibold text-[13px] text-zinc-100 truncate">{h.title}</div>
+                                                                <div className="font-semibold text-[13px] text-zinc-900 truncate">{h.title}</div>
                                                                 <div className="text-[11px] text-zinc-500 truncate mt-0.5 flex items-center gap-1.5">
                                                                     {h.platform && (
                                                                         <span className="badge text-[9px] py-0 px-1.5"
@@ -367,7 +367,7 @@ function DiscoverInner() {
                                                                                     setPhase('select');
                                                                                 }
                                                                             }}
-                                                                            className="hover:text-indigo-400 hover:underline cursor-pointer transition-colors"
+                                                                            className="hover:text-indigo-600 hover:underline cursor-pointer transition-colors"
                                                                             title="Filter by this location"
                                                                         >
                                                                             📍 {formatLocation(h.city, h.state)}
@@ -382,13 +382,13 @@ function DiscoverInner() {
                                                             <div className="shrink-0 text-left sm:text-right w-full sm:w-auto" style={{ minWidth: '90px' }}>
                                                                 {h.deadline ? (
                                                                     <>
-                                                                        <div className="text-[12px] text-zinc-300 font-medium">{fmtDate(h.deadline)}</div>
+                                                                        <div className="text-[12px] text-zinc-700 font-medium">{fmtDate(h.deadline)}</div>
                                                                         <div className={`text-[10px] font-semibold mt-0.5 ${deadlineColor}`}>
                                                                             {days !== null && days <= 0 ? 'Ends today' : days === 1 ? '1 day left' : `${days} days left`}
                                                                         </div>
                                                                     </>
                                                                 ) : (
-                                                                    <span className="text-[11px] text-zinc-700">No deadline</span>
+                                                                    <span className="text-[11px] text-zinc-500">No deadline</span>
                                                                 )}
                                                             </div>
 
@@ -400,8 +400,8 @@ function DiscoverInner() {
                                                                     disabled={isToggling}
                                                                     title={isTracked ? 'Stop tracking' : 'Track for Discord reminders'}
                                                                     className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all ${isToggling ? 'opacity-40' : ''} ${isTracked
-                                                                        ? 'text-yellow-500 bg-yellow-500/10 hover:bg-yellow-500/20'
-                                                                        : 'text-zinc-600 hover:text-zinc-300 hover:bg-white/[0.06]'}`}>
+                                                                        ? 'text-yellow-600 bg-yellow-100 hover:bg-yellow-200'
+                                                                        : 'text-zinc-400 hover:text-zinc-600 hover:bg-zinc-100'}`}>
                                                                     {isTracked ? (
                                                                         <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                                                                     ) : (
@@ -417,7 +417,7 @@ function DiscoverInner() {
                                                                 </a>
 
                                                                 {/* Chevron */}
-                                                                <svg className={`w-3.5 h-3.5 text-zinc-600 transition-transform shrink-0 ${isOpen ? 'rotate-180' : ''}`}
+                                                                <svg className={`w-3.5 h-3.5 text-zinc-500 transition-transform shrink-0 ${isOpen ? 'rotate-180' : ''}`}
                                                                     fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                                                 </svg>
@@ -427,7 +427,7 @@ function DiscoverInner() {
 
                                                     {/* ── Expanded ── */}
                                                     {isOpen && (
-                                                        <div className="px-4 pb-4 border-t border-white/[0.05]">
+                                                        <div className="px-4 pb-4 border-t border-zinc-100">
                                                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-4">
                                                                 <D label="Type" value={h.category || 'Other'} />
                                                                 <D label="Location" value={
@@ -440,7 +440,7 @@ function DiscoverInner() {
                                                                                 setPhase('select');
                                                                             }
                                                                         }}
-                                                                        className="hover:text-indigo-400 hover:underline cursor-pointer transition-colors"
+                                                                        className="hover:text-indigo-600 hover:underline cursor-pointer transition-colors"
                                                                         title="Filter by this location"
                                                                     >
                                                                         {formatLocation(h.city, h.state)}
@@ -460,14 +460,14 @@ function DiscoverInner() {
                                                                     ))}
                                                                 </div>
                                                             )}
-                                                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mt-4 pt-3 border-t border-white/[0.05] gap-3">
-                                                                <span className="text-[10px] text-zinc-600">
+                                                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mt-4 pt-3 border-t border-zinc-100 gap-3">
+                                                                <span className="text-[10px] text-zinc-500">
                                                                     {isTracked ? 'Reminders: 24h, 12h, 6h, 2h before deadline' : 'Track to get Discord DM reminders'}
                                                                 </span>
                                                                 <div className="flex gap-2">
                                                                     <button onClick={e => { e.stopPropagation(); toggleTrack(h.id); }}
                                                                         className={`btn-ghost text-[11px] py-1.5 px-3 ${isTracked
-                                                                            ? '!border-yellow-500/20 !text-yellow-400 hover:!bg-yellow-500/10'
+                                                                            ? '!border-yellow-500/20 !text-yellow-600 hover:!bg-yellow-100'
                                                                             : ''}`}>
                                                                         {isTracked ? 'Untrack' : 'Track Event'}
                                                                     </button>
@@ -485,7 +485,7 @@ function DiscoverInner() {
                                     })}
                                 </div>
 
-                                <div className="text-center py-6 text-[10px] text-zinc-700">
+                                <div className="text-center py-6 text-[10px] text-zinc-500">
                                     {total} events · Tracked events get Discord DM reminders at 24h, 12h, 6h, and 2h before deadline
                                 </div>
                             </>
@@ -501,7 +501,7 @@ function D({ label, value, highlight }: { label: string; value: React.ReactNode;
     return (
         <div>
             <div className="section-label mb-0.5">{label}</div>
-            <div className={`text-[12px] ${highlight ? 'text-amber-400' : 'text-zinc-300'}`}>{value}</div>
+            <div className={`text-[12px] ${highlight ? 'text-amber-500' : 'text-zinc-700'}`}>{value}</div>
         </div>
     );
 }
